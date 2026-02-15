@@ -45,72 +45,72 @@
         @media (max-width: 768px) { .hero h1 { font-size: 40px; } .nav-links { display: none; } }
     </style>
 </head>
-<body id=\"inicio\">
-    <canvas id=\"particles-canvas\"></canvas>
+<body id="inicio">
+    <canvas id="particles-canvas"></canvas>
     <header>
         <nav>
-            <div class=\"logo\">KNGfire</div>
-            <ul class=\"nav-links\">
-                <li><a href=\"#inicio\">Inicio</a></li>
-                <li><a href=\"#productos\">Productos</a></li>
-                <li><a href=\"#nosotros\">Nosotros</a></li>
+            <div class="logo">KNGfire</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
             </ul>
         </nav>
     </header>
-    <section class=\"hero\">
-        <div class=\"hero-content\">
+    <section class="hero">
+        <div class="hero-content">
             <h1>Enciende tu Estilo</h1>
             <p>Mecheros de lujo diseñados para quienes aprecian la excelencia</p>
-            <a href=\"#productos\" class=\"cta-button\">Ver Colección</a>
+            <a href="#productos" class="cta-button">Ver Colección</a>
         </div>
     </section>
-    <section class=\"products\" id=\"productos\">
-        <h2 class=\"section-title\">Nuestra Colección</h2>
-        <div class=\"product-grid\">
-            <div class=\"product-card\">
-                <span class=\"product-icon\">🔥</span>
+    <section class="products" id="productos">
+        <h2 class="section-title">Nuestra Colección</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <span class="product-icon">🔥</span>
                 <h3>Royal Flame</h3>
                 <p>Chapado en oro de 24k con acabado espejo. Ignición electrónica.</p>
-                <div class=\"product-price\">€299</div>
-                <button class=\"buy-button\" onclick=\"addToCart('Royal Flame', 299)\">Añadir al Carrito</button>
+                <div class="product-price">€299</div>
+                <button class="buy-button" onclick="addToCart('Royal Flame', 299)">Añadir al Carrito</button>
             </div>
-            <div class=\"product-card\">
-                <span class=\"product-icon\">💎</span>
+            <div class="product-card">
+                <span class="product-icon">💎</span>
                 <h3>Diamond Elite</h3>
                 <p>Edición limitada con incrustaciones de Swarovski. Llama ajustable.</p>
-                <div class=\"product-price\">€499</div>
-                <button class=\"buy-button\" onclick=\"addToCart('Diamond Elite', 499)\">Añadir al Carrito</button>
+                <div class="product-price">€499</div>
+                <button class="buy-button" onclick="addToCart('Diamond Elite', 499)">Añadir al Carrito</button>
             </div>
-            <div class=\"product-card\">
-                <span class=\"product-icon\">👑</span>
+            <div class="product-card">
+                <span class="product-icon">👑</span>
                 <h3>King Edition</h3>
                 <p>Titanio negro mate con grabado personalizado. El más exclusivo.</p>
-                <div class=\"product-price\">€799</div>
-                <button class=\"buy-button\" onclick=\"addToCart('King Edition', 799)\">Añadir al Carrito</button>
+                <div class="product-price">€799</div>
+                <button class="buy-button" onclick="addToCart('King Edition', 799)">Añadir al Carrito</button>
             </div>
         </div>
     </section>
-    <section class=\"about\" id=\"nosotros\" style=\"max-width: 800px; margin: 100px auto; text-align: center; padding: 0 20px;\">
-        <h2 style=\"font-size: 48px; color: #d4af37; margin-bottom: 30px;\">Excelencia en Cada Detalle</h2>
-        <p style=\"font-size: 18px; line-height: 1.8; color: #cccccc;\">Cada pieza es cuidadosamente diseñada y fabricada con los materiales más finos. Gocho es el mejor perro, viste papa?</p>
+    <section class="about" id="nosotros" style="max-width: 800px; margin: 100px auto; text-align: center; padding: 0 20px;">
+        <h2 style="font-size: 48px; color: #d4af37; margin-bottom: 30px;">Excelencia en Cada Detalle</h2>
+        <p style="font-size: 18px; line-height: 1.8; color: #cccccc;">Cada pieza es cuidadosamente diseñada y fabricada con los materiales más finos. Gocho es el mejor perro, viste papa?</p>
     </section>
     <footer>
         <p>© 2026 KNGfire. Todos los derechos reservados.</p>
         <p>Diseñado con pasión en Amsterdam</p>
     </footer>
-    <div class=\"floating-btns\">
-        <a href=\"https://wa.me/31600000000?text=Hola!%20Tengo%20una%20consulta.\" class=\"float-btn wa-btn\" target=\"_blank\">💬</a>
-        <div class=\"float-btn cart-btn\" onclick=\"toggleCart()\">
-            🛒 <span class=\"cart-badge\" id=\"cart-badge\">0</span>
+    <div class="floating-btns">
+        <a href="https://wa.me/31600000000?text=Hola!%20Tengo%20una%20consulta." class="float-btn wa-btn" target="_blank">💬</a>
+        <div class="float-btn cart-btn" onclick="toggleCart()">
+            🛒 <span class="cart-badge" id="cart-badge">0</span>
         </div>
     </div>
-    <div class=\"modal\" id=\"cart-modal\">
-        <div class=\"modal-content\">
-            <span class=\"close-modal\" onclick=\"toggleCart()\">&times;</span>
-            <h2 style=\"color: #d4af37; margin-bottom: 20px;\">Tu Carrito</h2>
-            <div id=\"cart-items-list\"></div>
-            <div class=\"cart-total\">Total: €<span id=\"cart-total-price\">0</span></div>
-            <button class=\"checkout-btn\" onclick=\"checkout()\">Pedir por WhatsApp</button>
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleCart()">&times;</span>
+            <h2 style="color: #d4af37; margin-bottom: 20px;">Tu Carrito</h2>
+            <div id="cart-items-list"></div>
+            <div class="cart-total">Total: €<span id="cart-total-price">0</span></div>
+            <button class="checkout-btn" onclick="checkout()">Pedir por WhatsApp</button>
         </div>
     </div>
     <script>
@@ -136,7 +136,7 @@
             }
             draw() {
                 ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = \`rgba(212, 175, 55, \${this.alpha})\`;
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`;
                 ctx.shadowBlur = 8; ctx.shadowColor = '#d4af37'; ctx.fill();
             }
         }
@@ -167,19 +167,22 @@
             list.innerHTML = ''; let total = 0;
             cart.forEach((item, index) => {
                 total += item.price * item.qty;
-                list.innerHTML += \`<div class=\"cart-item\"><div><div style=\"color: #d4af37; font-weight: bold;\">\${item.name}</div><div style=\"font-size: 14px; color: #ccc;\">€\${item.price} x \${item.qty}</div></div><button onclick=\"removeItem(\${index})\" style=\"background:none; border:none; color: #ff4444; cursor:pointer;\">X</button></div>\`;
+                list.innerHTML += `<div class="cart-item"><div><div style="color: #d4af37; font-weight: bold;">${item.name}</div><div style="font-size: 14px; color: #ccc;">€${item.price} x ${item.qty}</div></div><button onclick="removeItem(${index})" style="background:none; border:none; color: #ff4444; cursor:pointer;">X</button></div>`;
             });
             document.getElementById('cart-total-price').innerText = total;
         }
         function removeItem(index) { cart.splice(index, 1); updateUI(); renderCart(); }
         function checkout() {
-            if (cart.length === 0) return alert(\"El carrito está vacío\");
-            let msg = \"¡Hola! Quiero hacer un pedido:\\n\"; let total = 0;
-            cart.forEach(i => { msg += \`- \${i.name} x\${i.qty} (€\${i.price * i.qty})\\n\`; total += i.price * i.qty; });
-            msg += \`\\nTotal: €\${total}\`;
-            window.open(\`https://wa.me/31600000000?text=\${encodeURIComponent(msg)}\`, '_blank');
+            if (cart.length === 0) return alert("El carrito está vacío");
+            let msg = "¡Hola! Quiero hacer un pedido:
+"; let total = 0;
+            cart.forEach(i => { msg += `- ${i.name} x${i.qty} (€${i.price * i.qty})
+`; total += i.price * i.qty; });
+            msg += `
+Total: €${total}`;
+            window.open(`https://wa.me/31600000000?text=${encodeURIComponent(msg)}`, '_blank');
         }
-        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
