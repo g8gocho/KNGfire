@@ -40,7 +40,34 @@
         .social-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
         .social-links a { color: #d4af37; font-size: 24px; transition: color 0.3s; text-decoration: none; }
         .social-links a:hover { color: #ffffff; }
-        @media (max-width: 768px) { .hero h1 { font-size: 40px; } .hero p { font-size: 18px; } .section-title { font-size: 32px; } .nav-links { display: none; } }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 2000;
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+            color: white;
+        }
+        .whatsapp-icon { font-size: 24px; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 40px; } .hero p { font-size: 18px; } .section-title { font-size: 32px; } .nav-links { display: none; } .whatsapp-float { bottom: 20px; right: 20px; padding: 10px 20px; } }
     </style>
 </head>
 <body>
@@ -60,7 +87,7 @@
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>Enciende tu Estilo</h1>
-            <p>Mecheros de lujo diseñados para quienes aprecian la excelencia</p>
+            <p>Mecheros de lujo diseñados para quienes aprecian la excellence</p>
             <a href="#productos" class="cta-button">Ver Colección</a>
         </div>
     </section>
@@ -96,6 +123,11 @@
         <h2>Excelencia en Cada Detalle</h2>
         <p>En KNGfire, creemos que un mechero es más que una herramienta: es una declaración de estilo. Cada pieza es cuidadosamente diseñada y fabricada con los materiales más finos, combinando funcionalidad superior con un diseño atemporal. Gocho es el mejor perro, viste papa?</p>
     </section>
+
+    <a href="https://wa.me/31600000000" class="whatsapp-float" target="_blank">
+        <span class="whatsapp-icon">💬</span>
+        <span>Habla ya</span>
+    </a>
 
     <footer>
         <p>© 2026 KNGfire. Todos los derechos reservados.</p>
