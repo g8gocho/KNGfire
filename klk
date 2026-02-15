@@ -1,0 +1,23 @@
+script.jsdocument.addEventListener('DOMContentLoaded', function() {
+  // Navbar scroll black luxury
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Smooth scroll links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(link.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
+    });
+  });
+
+  // Gold buttons hover luxury
+  document.querySelectorAll('.btn-gold, .luxury-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', () => btn.style.transform = 'scale(1.05)');
+    btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
+  });
+});
+
