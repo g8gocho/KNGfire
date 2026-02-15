@@ -6,335 +6,243 @@
     <title>KNGfire - Mecheros de Lujo</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Georgia', serif; 
-            background: #0a0a0a; 
-            color: #ffffff; 
-            overflow-x: hidden; 
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
-        }
+        body { font-family: 'Georgia', serif; background: #0a0a0a; color: #ffffff; overflow-x: hidden; scroll-behavior: smooth; }
         #particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        
-        header { 
-            background: rgba(0, 0, 0, 0.9); 
-            padding: 20px 0; 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 2px solid #d4af37; 
-            backdrop-filter: blur(10px);
-        }
+        header { background: rgba(0, 0, 0, 0.95); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid #d4af37; }
         nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-size: 32px; font-weight: bold; color: #d4af37; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+        .logo { font-size: 32px; font-weight: bold; color: #d4af37; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { color: #ffffff; text-decoration: none; font-size: 16px; transition: color 0.3s; }
+        .nav-links a { color: #ffffff; text-decoration: none; font-size: 16px; transition: color 0.3s; font-weight: bold; }
         .nav-links a:hover { color: #d4af37; }
-        
         .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
         .hero-content { z-index: 1; max-width: 800px; padding: 0 20px; }
-        .hero h1 { font-size: 64px; margin-bottom: 20px; color: #d4af37; text-transform: uppercase; letter-spacing: 5px; animation: fadeInDown 1s ease-out; }
-        .hero p { font-size: 24px; margin-bottom: 40px; color: #cccccc; animation: fadeInUp 1s ease-out 0.3s backwards; }
-        
-        .cta-button { 
-            display: inline-block; 
-            padding: 15px 40px; 
-            background: #d4af37; 
-            color: #000; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 5px; 
-            transition: all 0.3s; 
-            text-transform: uppercase;
-        }
-        .cta-button:hover { background: #b8941f; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
-        
-        .products { max-width: 1200px; margin: 100px auto; padding: 0 20px; }
-        .section-title { text-align: center; font-size: 48px; margin-bottom: 60px; color: #d4af37; text-transform: uppercase; letter-spacing: 3px; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .product-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(212, 175, 55, 0.3); 
-            border-radius: 15px; 
-            padding: 40px; 
-            text-align: center; 
-            transition: all 0.4s ease;
-            backdrop-filter: blur(5px);
-        }
-        .product-card:hover { 
-            transform: translateY(-10px); 
-            background: rgba(212, 175, 55, 0.05); 
-            border-color: #d4af37;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-        }
-        .product-icon { font-size: 60px; margin-bottom: 25px; display: block; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
-        .product-card h3 { color: #d4af37; font-size: 28px; margin-bottom: 15px; }
-        .product-card p { color: #ccc; line-height: 1.6; margin-bottom: 25px; }
-        .product-price { font-size: 36px; color: #d4af37; font-weight: bold; margin-bottom: 25px; display: block; }
-        
-        .buy-button { 
-            width: 100%;
-            padding: 15px; 
-            background: transparent; 
-            color: #d4af37; 
-            border: 2px solid #d4af37; 
-            font-weight: bold; 
-            cursor: pointer; 
-            transition: 0.3s; 
-            text-transform: uppercase;
-            border-radius: 5px;
-        }
+        .hero h1 { font-size: 72px; margin-bottom: 20px; color: #d4af37; text-transform: uppercase; letter-spacing: 5px; text-shadow: 0 0 20px rgba(212,175,55,0.3); }
+        .hero p { font-size: 26px; margin-bottom: 40px; color: #cccccc; }
+        .cta-button { display: inline-block; padding: 15px 45px; background: #d4af37; color: #000; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; font-size: 18px; text-transform: uppercase; }
+        .cta-button:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212,175,55,0.4); }
+        .section { max-width: 1200px; margin: 120px auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 48px; margin-bottom: 60px; color: #d4af37; text-transform: uppercase; letter-spacing: 2px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .product-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212,175,55,0.3); border-radius: 15px; padding: 40px; text-align: center; transition: 0.4s; position: relative; overflow: hidden; }
+        .product-card:hover { transform: translateY(-10px); border-color: #d4af37; box-shadow: 0 20px 40px rgba(0,0,0,0.4); background: rgba(255, 255, 255, 0.06); }
+        .product-icon { font-size: 60px; margin-bottom: 25px; display: block; filter: drop-shadow(0 0 10px rgba(212,175,55,0.4)); }
+        .product-card h3 { font-size: 28px; margin-bottom: 15px; color: #fff; }
+        .product-card p { color: #aaa; line-height: 1.6; margin-bottom: 25px; }
+        .product-price { font-size: 36px; color: #d4af37; font-weight: bold; margin: 25px 0; }
+        .buy-button { width: 100%; padding: 15px; background: transparent; color: #d4af37; border: 2px solid #d4af37; font-weight: bold; cursor: pointer; transition: 0.3s; border-radius: 5px; text-transform: uppercase; }
         .buy-button:hover { background: #d4af37; color: #000; }
-        
+        .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: rgba(255,255,255,0.02); padding: 40px; border-radius: 15px; border-top: 3px solid #d4af37; text-align: left; }
+        .stars { color: #d4af37; margin-bottom: 15px; font-size: 20px; }
+        .testimonial-text { font-style: italic; color: #ddd; margin-bottom: 20px; font-size: 17px; line-height: 1.6; }
+        .testimonial-author { color: #d4af37; font-weight: bold; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { margin-bottom: 15px; background: rgba(255,255,255,0.03); border-radius: 10px; overflow: hidden; border: 1px solid rgba(212,175,55,0.1); }
+        .faq-question { padding: 20px; color: #d4af37; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.4s ease-out; color: #aaa; line-height: 1.8; }
+        .faq-item.active .faq-answer { padding: 0 20px 20px 20px; max-height: 200px; }
+        .trust-badges { display: flex; justify-content: center; gap: 80px; flex-wrap: wrap; margin: 80px 0; padding: 40px; background: rgba(212,175,55,0.05); border-radius: 20px; }
+        .badge { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .badge-icon { font-size: 40px; }
+        .badge span { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; color: #d4af37; }
         .floating-btns { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 1001; }
-        .float-btn { 
-            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            font-size: 28px; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4); text-decoration: none; 
-        }
-        .float-btn:hover { transform: scale(1.15) rotate(5deg); }
+        .float-btn { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 25px rgba(0,0,0,0.5); text-decoration: none; border: none; }
         .wa-btn { background: #25d366; color: white; }
         .cart-btn { background: #d4af37; color: black; position: relative; }
-        .cart-badge { 
-            position: absolute; top: -5px; right: -5px; background: #ff0000; color: white; 
-            border-radius: 50%; width: 24px; height: 24px; font-size: 13px; display: flex; 
-            align-items: center; justify-content: center; font-weight: bold; border: 2px solid #000;
-        }
-        
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; }
-        .modal-content { background: #111; border: 1px solid #d4af37; border-radius: 15px; width: 95%; max-width: 500px; padding: 40px; position: relative; max-height: 90vh; overflow-y: auto; }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 35px; color: #d4af37; cursor: pointer; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 15px; }
-        .cart-total { font-size: 28px; color: #d4af37; text-align: right; margin-top: 25px; font-weight: bold; border-top: 2px solid #d4af37; padding-top: 15px; }
+        .cart-badge { position: absolute; top: -5px; right: -5px; background: #ff3b30; color: white; border-radius: 50%; width: 25px; height: 25px; font-size: 13px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid #000; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+        .modal-content { background: #111; border: 1px solid #d4af37; border-radius: 20px; width: 95%; max-width: 500px; padding: 40px; position: relative; }
+        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 35px; color: #d4af37; cursor: pointer; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #222; }
+        .cart-total { font-size: 28px; color: #d4af37; text-align: right; margin-top: 30px; font-weight: bold; border-top: 2px solid #d4af37; padding-top: 20px; }
         .checkout-btn { width: 100%; padding: 18px; background: #d4af37; color: black; border: none; border-radius: 8px; font-weight: bold; margin-top: 25px; cursor: pointer; font-size: 18px; text-transform: uppercase; }
-        
-        footer { background: rgba(0, 0, 0, 1); padding: 60px 20px; text-align: center; border-top: 1px solid #d4af37; margin-top: 100px; }
-        
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        
-        @media (max-width: 768px) { .hero h1 { font-size: 40px; } .nav-links { display: none; } }
+        footer { background: #050505; padding: 60px 20px; text-align: center; border-top: 1px solid #222; }
+        .footer-logo { font-size: 24px; color: #d4af37; margin-bottom: 20px; font-weight: bold; }
+        .gocho-tag { color: #333; font-size: 12px; margin-top: 30px; }
     </style>
 </head>
 <body>
     <canvas id="particles-canvas"></canvas>
-
     <header>
         <nav>
-            <div class="logo">KNGfire</div>
+            <div class="logo" onclick="window.scrollTo(0,0)">KNGfire</div>
             <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Colección</a></li>
+                <li><a href="#testimonios">Opiniones</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
         </nav>
     </header>
-
-    <section class="hero" id="inicio">
+    <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>Enciende tu Estilo</h1>
-            <p>Mecheros de lujo diseñados para quienes aprecian la excelencia</p>
-            <a href="#productos" class="cta-button">Ver Colección</a>
+            <p>Mecheros de alta gama para coleccionistas exigentes</p>
+            <a href="#productos" class="cta-button">Explorar Colección</a>
         </div>
     </section>
-
-    <section class="products" id="productos">
+    <section id="productos" class="section">
         <h2 class="section-title">Nuestra Colección</h2>
         <div class="product-grid">
             <div class="product-card">
                 <span class="product-icon">🔥</span>
                 <h3>Royal Flame</h3>
-                <p>Chapado en oro de 24k con acabado espejo. Ignición electrónica.</p>
-                <span class="product-price">€299</span>
+                <p>Chapado en oro de 24k con acabado espejo. Tecnología de ignición por arco plasmático.</p>
+                <div class="product-price">€299</div>
                 <button class="buy-button" onclick="addToCart('Royal Flame', 299)">Añadir al Carrito</button>
             </div>
             <div class="product-card">
                 <span class="product-icon">💎</span>
                 <h3>Diamond Elite</h3>
-                <p>Edición limitada con incrustaciones de Swarovski. Llama ajustable.</p>
-                <span class="product-price">€499</span>
+                <p>Incrustaciones de cristal Swarovski genuino. Recargable y resistente al viento.</p>
+                <div class="product-price">€499</div>
                 <button class="buy-button" onclick="addToCart('Diamond Elite', 499)">Añadir al Carrito</button>
             </div>
             <div class="product-card">
                 <span class="product-icon">👑</span>
                 <h3>King Edition</h3>
-                <p>Titanio negro mate con grabado personalizado. El más exclusivo.</p>
-                <span class="product-price">€799</span>
+                <p>Cuerpo de titanio aeroespacial. Grabado láser personalizado incluido.</p>
+                <div class="product-price">€799</div>
                 <button class="buy-button" onclick="addToCart('King Edition', 799)">Añadir al Carrito</button>
             </div>
         </div>
     </section>
-
-    <footer>
-        <h2 style="color: #d4af37; margin-bottom: 20px;">Excelencia en Cada Detalle</h2>
-        <p style="color: #ccc; max-width: 600px; margin: 0 auto 30px;">Cada pieza es cuidadosamente diseñada y fabricada con los materiales más finos. Gocho es el mejor perro, viste papa?</p>
-        <p>&copy; 2026 KNGfire. Todos los derechos reservados.</p>
-        <p style="font-size: 14px; margin-top: 10px; color: #666;">Diseñado con pasión en Amsterdam</p>
-    </footer>
-
-    <div class="floating-btns">
-        <a href="https://wa.me/31600000000?text=Hola!%20Tengo%20una%20consulta." class="float-btn wa-btn" target="_blank">💬</a>
-        <div class="float-btn cart-btn" onclick="toggleCart()">
-            🛒<span class="cart-badge" id="cart-badge">0</span>
+    <section id="testimonios" class="section">
+        <h2 class="section-title">Experiencias KNGfire</h2>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"La atención al detalle es asombrosa. Es mucho más que un mechero, es una joya funcional."</p>
+                <p class="testimonial-author">Alessandro R. — Roma</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"El envío a Dubái fue rapidísimo. El empaque de lujo hace que la apertura sea especial."</p>
+                <p class="testimonial-author">Hassan M. — Dubái</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"He comprado el King Edition y es simplemente espectacular. Robusto y elegante."</p>
+                <p class="testimonial-author">Lucía S. — Madrid</p>
+            </div>
+        </div>
+    </section>
+    <section id="faq" class="section">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿Cuál es el tiempo de envío? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Ofrecemos envío express gratuito a todo el mundo. El tiempo estimado es de 3 a 5 días laborables.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿Son recargables? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Sí, todos nuestros modelos son recargables (gas butano premium o carga USB tipo C).
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="section">
+        <div class="trust-badges">
+            <div class="badge"><span class="badge-icon">✈️</span><span>Envío Global Gratis</span></div>
+            <div class="badge"><span class="badge-icon">🛡️</span><span>Garantía de 2 Años</span></div>
+            <div class="badge"><span class="badge-icon">💳</span><span>Pago 100% Seguro</span></div>
         </div>
     </div>
-
-    <div class="modal" id="cart-modal">
+    <footer>
+        <div class="footer-logo">KNGFIRE</div>
+        <p>© 2026 KNGfire. Todos los derechos reservados.</p>
+        <p class="gocho-tag">Gocho es el mejor perro, viste papa?</p>
+    </footer>
+    <div class="floating-btns">
+        <a href="https://wa.me/31600000000?text=Hola%20KNGfire" class="float-btn wa-btn">💬</a>
+        <button class="float-btn cart-btn" onclick="toggleCart()">🛒<span class="cart-badge" id="cart-badge">0</span></button>
+    </div>
+    <div id="cart-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="toggleCart()">&times;</span>
-            <h2 style="color: #d4af37; margin-bottom: 25px;">Tu Carrito</h2>
+            <span class="close-modal" onclick="toggleCart()">×</span>
+            <h2 style="color:#d4af37; margin-bottom:20px;">Tu Carrito</h2>
             <div id="cart-items-list"></div>
             <div class="cart-total">Total: €<span id="cart-total-price">0</span></div>
-            <button class="checkout-btn" onclick="checkout()">Pedir por WhatsApp</button>
+            <button class="checkout-btn" onclick="checkout()">Pedir vía WhatsApp</button>
         </div>
     </div>
-
     <script>
-        // Enhanced Particle System (Golden Sparks)
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        let mouse = { x: null, y: null };
-
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize);
+        let mouse = { x: null, y: null, radius: 150 };
+        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.onresize = resize;
         resize();
-
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.x;
-            mouse.y = e.y;
-        });
-
         class Particle {
-            constructor() {
-                this.init();
-            }
+            constructor() { this.init(); }
             init() {
                 this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height + 20;
-                this.vx = (Math.random() - 0.5) * 0.8;
-                this.vy = Math.random() * 1.5 + 0.5; // Upward speed
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
                 this.size = Math.random() * 2 + 0.5;
-                this.alpha = Math.random() * 0.5 + 0.2;
-                this.color = Math.random() > 0.2 ? '#d4af37' : '#ff9d00';
+                this.alpha = Math.random() * 0.5 + 0.1;
             }
             update() {
-                this.y -= this.vy;
-                this.x += this.vx + Math.sin(this.y * 0.01) * 0.3;
-
-                if (mouse.x && mouse.y) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let dist = Math.sqrt(dx*dx + dy*dy);
-                    if (dist < 100) {
-                        this.x -= dx / 20;
-                        this.y -= dy / 20;
-                    }
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                if (distance < mouse.radius) {
+                    this.x -= (dx/distance) * 2;
+                    this.y -= (dy/distance) * 2;
                 }
-
-                if (this.y < -10) {
-                    this.y = canvas.height + 10;
-                    this.x = Math.random() * canvas.width;
-                }
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
             draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.alpha;
-                ctx.shadowBlur = 5;
-                ctx.shadowColor = this.color;
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`; ctx.fill();
             }
         }
-
         for (let i = 0; i < 100; i++) particles.push(new Particle());
-
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
+            particles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(animate);
         }
         animate();
-
-        // Cart Logic
         let cart = [];
-
         function toggleCart() {
             const m = document.getElementById('cart-modal');
             m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-            renderCart();
+            if (m.style.display === 'flex') renderCart();
         }
-
-        function addToCart(name, price) {
-            const item = cart.find(i => i.name === name);
-            if (item) item.qty++;
-            else cart.push({ name, price, qty: 1 });
+        function addToCart(n, p) {
+            const i = cart.find(x => x.name === n);
+            if (i) i.qty++; else cart.push({ name: n, price: p, qty: 1 });
             updateUI();
-            
-            const badge = document.getElementById('cart-badge');
-            badge.style.transform = 'scale(1.3)';
-            setTimeout(() => badge.style.transform = 'scale(1)', 200);
         }
-
-        function updateUI() {
-            const count = cart.reduce((acc, i) => acc + i.qty, 0);
-            document.getElementById('cart-badge').innerText = count;
-        }
-
+        function updateUI() { document.getElementById('cart-badge').innerText = cart.reduce((a, b) => a + b.qty, 0); }
         function renderCart() {
-            const list = document.getElementById('cart-items-list');
-            list.innerHTML = '';
-            let total = 0;
-            cart.forEach((item, index) => {
-                total += item.price * item.qty;
-                list.innerHTML += `
-                    <div class="cart-item">
-                        <div>
-                            <div style="color: #d4af37; font-weight: bold;">\${item.name}</div>
-                            <div style="font-size: 14px; color: #ccc;">€\${item.price} x \${item.qty}</div>
-                        </div>
-                        <button onclick="removeItem(\${index})" style="background:none; border:none; color: #ff4444; cursor:pointer; font-size: 18px;">&times;</button>
-                    </div>`;
+            const l = document.getElementById('cart-items-list');
+            l.innerHTML = ''; let t = 0;
+            cart.forEach((i, idx) => {
+                t += i.price * i.qty;
+                l.innerHTML += `<div class="cart-item"><div><b>${i.name}</b><br>€${i.price} x ${i.qty}</div><button onclick="removeItem(${idx})" style="color:red; background:none; border:none; cursor:pointer;">×</button></div>`;
             });
-            document.getElementById('cart-total-price').innerText = total;
+            document.getElementById('cart-total-price').innerText = t;
         }
-
-        function removeItem(index) {
-            cart.splice(index, 1);
-            updateUI();
-            renderCart();
-        }
-
+        function removeItem(idx) { cart.splice(idx, 1); updateUI(); renderCart(); }
         function checkout() {
-            if (cart.length === 0) return alert("El carrito está vacío");
-            let msg = "¡Hola! Quiero hacer un pedido de KNGfire: \\n";
-            let total = 0;
-            cart.forEach(i => {
-                msg += `- \${i.name} x\${i.qty} (€\${i.price * i.qty})\\n`;
-                total += i.price * i.qty;
-            });
-            msg += \`\\nTotal: €\${total}\`;
-            window.open(\`https://wa.me/31600000000?text=\${encodeURIComponent(msg)}\`, '_blank');
+            if (!cart.length) return alert('Vacío');
+            let m = 'Pedido KNGfire:';
+            cart.forEach(i => m += '• ' + i.name + ' x' + i.qty + ' (€' + (i.price*i.qty) + ')');
+            window.open('https://wa.me/31600000000?text=' + encodeURIComponent(m), '_blank');
         }
-
-        // Smooth Scroll
-        document.querySelectorAll('a\\[href^=\"#\"\\]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
     </script>
 </body>
 </html>
