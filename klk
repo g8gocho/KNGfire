@@ -1,5 +1,5 @@
 script.jsdocument.addEventListener('DOMContentLoaded', function() {
-  // Navbar scroll black luxury
+  // Navbar scroll black luxury gold
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     if (window.scrollY > 100) nav.classList.add('scrolled');
