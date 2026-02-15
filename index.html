@@ -6,8 +6,7 @@
     <title>KNGfire - Mecheros de Lujo</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-#particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        #particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
         body { font-family: 'Georgia', serif; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); color: #ffffff; overflow-x: hidden; }
         header { background: rgba(0, 0, 0, 0.9); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid #d4af37; }
         nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
@@ -26,8 +25,8 @@
         .section-title { text-align: center; font-size: 48px; margin-bottom: 60px; color: #d4af37; text-transform: uppercase; letter-spacing: 3px; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .product-card { background: rgba(255, 255, 255, 0.05); border: 2px solid #d4af37; border-radius: 10px; padding: 30px; text-align: center; transition: all 0.3s; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.4), 0 20px 60px rgba(212, 175, 55, 0.3); background: rgba(255, 255, 255, 0.1); }
-        .product-image { width: 200px; height: 200px; margin-bottom: 20px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)); }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4); background: rgba(255, 255, 255, 0.1); }
+        .product-image { width: 100px; height: 100px; margin: 0 auto 20px; font-size: 60px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 10px #d4af37); }
         .product-card h3 { font-size: 28px; margin-bottom: 15px; color: #d4af37; }
         .product-card p { font-size: 16px; line-height: 1.6; color: #cccccc; margin-bottom: 20px; }
         .product-price { font-size: 32px; color: #d4af37; font-weight: bold; margin-bottom: 20px; }
@@ -39,12 +38,13 @@
         footer { background: rgba(0, 0, 0, 0.9); padding: 40px 20px; text-align: center; border-top: 2px solid #d4af37; margin-top: 100px; }
         footer p { color: #cccccc; font-size: 16px; }
         .social-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
-        .social-links a { color: #d4af37; font-size: 24px; transition: color 0.3s; }
+        .social-links a { color: #d4af37; font-size: 24px; transition: color 0.3s; text-decoration: none; }
         .social-links a:hover { color: #ffffff; }
         @media (max-width: 768px) { .hero h1 { font-size: 40px; } .hero p { font-size: 18px; } .section-title { font-size: 32px; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
+    <canvas id="particles-canvas"></canvas>
     <header>
         <nav>
             <div class="logo">KNGfire</div>
@@ -57,7 +57,7 @@
         </nav>
     </header>
 
-    <section class="hero" id="inicio">
+    <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>Enciende tu Estilo</h1>
             <p>Mecheros de lujo diseñados para quienes aprecian la excelencia</p>
@@ -65,46 +65,25 @@
         </div>
     </section>
 
-    <section class="products" id="productos">
+    <section id="productos" class="products">
         <h2 class="section-title">Nuestra Colección</h2>
         <div class="product-grid">
             <div class="product-card">
-                <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="product-image">
-                    <rect x="70" y="60" width="60" height="100" rx="10" fill="#d4af37" />
-                    <path d="M100 20 Q110 40 100 60 Q90 40 100 20" fill="#ff4500">
-                        <animate attributeName="d" values="M100 20 Q110 40 100 60 Q90 40 100 20;M100 15 Q120 40 100 60 Q80 40 100 15;M100 20 Q110 40 100 60 Q90 40 100 20" dur="1s" repeatCount="indefinite" />
-                    </path>
-                    <text x="100" y="120" font-family="Arial" font-size="20" fill="rgba(0,0,0,0.2)" text-anchor="middle">🔥</text>
-                </svg>
+                <div class="product-image">🔥</div>
                 <h3>Royal Flame</h3>
                 <p>Mechero chapado en oro de 24k con acabado espejo. Ignición electrónica y diseño ergonómico.</p>
                 <div class="product-price">€299</div>
                 <a href="#" class="buy-button">Comprar Ahora</a>
             </div>
-
             <div class="product-card">
-                <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="product-image">
-                    <rect x="70" y="60" width="60" height="100" rx="10" fill="#e5e5e5" />
-                    <polygon points="100,70 115,85 100,100 85,85" fill="#b9f2ff" />
-                    <circle cx="85" cy="85" r="3" fill="white" />
-                    <circle cx="115" cy="85" r="3" fill="white" />
-                    <circle cx="100" cy="70" r="3" fill="white" />
-                    <circle cx="100" cy="100" r="3" fill="white" />
-                    <text x="100" y="130" font-family="Arial" font-size="20" fill="rgba(0,0,0,0.1)" text-anchor="middle">💎</text>
-                </svg>
+                <div class="product-image">💎</div>
                 <h3>Diamond Elite</h3>
                 <p>Edición limitada con incrustaciones de cristal Swarovski. Llama ajustable y recargable.</p>
                 <div class="product-price">€499</div>
                 <a href="#" class="buy-button">Comprar Ahora</a>
             </div>
-
             <div class="product-card">
-                <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="product-image">
-                    <rect x="70" y="60" width="60" height="100" rx="10" fill="#1a1a1a" stroke="#d4af37" stroke-width="2" />
-                    <path d="M85 80 L115 80 L115 70 L107 75 L100 65 L93 75 L85 70 Z" fill="#d4af37" />
-                    <circle cx="100" cy="110" r="15" fill="none" stroke="#d4af37" stroke-width="1" />
-                    <text x="100" y="115" font-family="Arial" font-size="12" fill="#d4af37" text-anchor="middle">KNG</text>
-                </svg>
+                <div class="product-image">👑</div>
                 <h3>King Edition</h3>
                 <p>El más exclusivo. Titanio negro mate con grabado personalizado. Para verdaderos conocedores.</p>
                 <div class="product-price">€799</div>
@@ -113,9 +92,9 @@
         </div>
     </section>
 
-    <section class="about" id="nosotros">
+    <section id="nosotros" class="about">
         <h2>Excelencia en Cada Detalle</h2>
-        <p>En KNGfire, creemos que un mechero es más que una herramienta: es una declaración de estilo. Cada pieza es cuidadosamente diseñada y fabricada con los materiales más finos, combinando funcionalidad superior con un diseño atemporal. Nuestros mecheros son el complemento perfecto para quienes no aceptan nada menos que la perfección. Gocho es el mejor perro, viste papa?</p>
+        <p>En KNGfire, creemos que un mechero es más que una herramienta: es una declaración de estilo. Cada pieza es cuidadosamente diseñada y fabricada con los materiales más finos, combinando funcionalidad superior con un diseño atemporal. Gocho es el mejor perro, viste papa?</p>
     </section>
 
     <footer>
@@ -129,6 +108,7 @@
     </footer>
 
     <script>
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -139,6 +119,7 @@
             });
         });
 
+        // Animations on scroll
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
@@ -155,75 +136,67 @@
             card.style.transition = 'all 0.6s ease-out';
             observer.observe(card);
         });
+
+        // Particle System
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 100;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.alpha = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#d4af37';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     </script>
-    
-<!-- Particles Background -->
-<canvas id="particles-canvas"></canvas>
-
-<script>
-// Gold Particles Animation
-const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-
-const particles = [];
-const particleCount = 80;
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random() * 0.5 + 0.3;
-    }
-    
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-    
-    draw() {
-        ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Add glow effect
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = '#d4af37';
-    }
-}
-
-for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-    });
-    
-    requestAnimationFrame(animate);
-}
-
-animate();
-</script>
 </body>
 </html>
